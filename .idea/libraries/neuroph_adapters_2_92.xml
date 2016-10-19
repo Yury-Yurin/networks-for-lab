@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="neuroph-adapters-2.92">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/lab3/neuroph-2.92/neuroph-adapters-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/lab3/neuroph-2.92/neuroph-contrib-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/lab3/neuroph-2.92/neuroph-core-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/lab3/neuroph-2.92/neuroph-imgrec-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/lab3/neuroph-2.92/neuroph-ocr-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/lab3/neuroph-2.92/neuroph-samples-2.92.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
