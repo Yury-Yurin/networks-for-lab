@@ -17,8 +17,10 @@ public class TestMLPNetwork {
         BufferedReader outData = new BufferedReader(new FileReader("/home/blondeks/lab3/attacks"));
         Object[] stringLines = inData.lines().toArray();
         Object[] stringLies2 = outData.lines().toArray();
+
         Integer k=0;
         for(int i=0;i<311029;i++) {
+            dataSetRow = new double[41];
             String[] params = stringLines[i].toString().split(",");
             for(int j=0;j<41;j++) {
                 dataSetRow[j] = Double.valueOf(params[j]);
@@ -26,18 +28,12 @@ public class TestMLPNetwork {
             neuralNetwork.setInput(dataSetRow);
             neuralNetwork.calculate();
             Double value = Double.valueOf(stringLies2[i].toString());
-            if(value.equals(1.0)) {
-                Thread.sleep(1);
-            }
             double[] networkOutput = neuralNetwork.getOutput();
-            if (networkOutput[0] > networkOutput[1]) {
-                networkOutput[0] = 1.0;
-                networkOutput[1] = 0.0;
-            }
-            else {
+            if(value.equals(1.0))
+                Thread.sleep(1);
+            if(networkOutput[0]<0.5)
                 networkOutput[0] = 0.0;
-                networkOutput[1] = 1.0;
-            }
+            else networkOutput[0] = 1.0;
             if(value.equals(networkOutput[0])) {
                 k++;
             }

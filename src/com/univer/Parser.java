@@ -21,7 +21,7 @@ public class Parser {
             if (params[1].equals("tcp")) params[1] = "0.5";
             if (params[1].equals("icmp")) params[1] = "1";
 
-            for (int i = 0; i < params.length; i++) {
+            for (int i = 0; i < 4; i++) {
                 int t = 0;
                 if (!params[i].equals("0") && !params[i].equals("1") && !params[i].equals("1.00") && !params[i].equals("0.00") && i != 1) {
                     for (int j = 0; j < params[i].length(); j++) {
@@ -31,6 +31,15 @@ public class Parser {
                     params[i] = String.valueOf(t / size);
                 }
             }
+          /*  for (int i = 4; i < params.length; i++) {
+                if (!params[i].equals("0") && !params[i].equals("1") && !params[i].equals("1.00") && !params[i].equals("0.00") ) {
+                    Double value = Double.valueOf(params[i]);
+                    if(value > 1.0) {
+                        Double size = Math.pow(10, params[i].length());
+                        params[i] = String.valueOf(value / size);
+                    }
+                }
+            }*/
             stringList2[k] = "";
             for (int i=0;i<params.length;i++) {
                 if (!Objects.equals(i, params.length - 1))
