@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Parser {
     public static void main(String[] args) throws Exception {
-        BufferedReader in = new BufferedReader(new FileReader("/home/blondeks/lab3/corrected"));
+        BufferedReader in = new BufferedReader(new FileReader("/home/yury/BSTU/lab3/corrected"));
         Integer k = 0;
         Object[] stringList = in.lines().toArray();
         String[] stringList2 = new String[311029];
@@ -31,7 +31,7 @@ public class Parser {
                     params[i] = String.valueOf(t / size);
                 }
             }
-          /*  for (int i = 4; i < params.length; i++) {
+            for (int i = 4; i < params.length; i++) {
                 if (!params[i].equals("0") && !params[i].equals("1") && !params[i].equals("1.00") && !params[i].equals("0.00") ) {
                     Double value = Double.valueOf(params[i]);
                     if(value > 1.0) {
@@ -39,7 +39,7 @@ public class Parser {
                         params[i] = String.valueOf(value / size);
                     }
                 }
-            }*/
+            }
             stringList2[k] = "";
             for (int i=0;i<params.length;i++) {
                 if (!Objects.equals(i, params.length - 1))
@@ -52,7 +52,7 @@ public class Parser {
         }
         k = 0;
         in.close();
-        in = new BufferedReader(new FileReader("/home/blondeks/lab3/corrected"));
+        in = new BufferedReader(new FileReader("/home/yury/BSTU/lab3/corrected"));
         stringList = in.lines().toArray();
         for (Object str : stringList) {
             int index = str.toString().lastIndexOf(",");
@@ -61,19 +61,20 @@ public class Parser {
             stringList3[k] = changeProbe(prob);
             k++;
         }
-        File file2 = new File("/home/blondeks/lab3/attacks");
+        File file2 = new File("/home/yury/BSTU/lab3/attacks");
         FileWriter f2 = new FileWriter(file2);
         for(int i=0;i<311029;i++) {
             f2.append(stringList3[i] + "\n");
         }
         f2.close();
-        File file1 = new File("/home/blondeks/lab3/correctedNew");
+        File file1 = new File("/home/yury/BSTU/lab3/correctedNew");
         FileWriter f1 = new FileWriter(file1);
         for(int i=0;i<311029;i++) {
             f1.append(stringList2[i] + "\n");
         }
         f1.close();
-        Thread.sleep(100);
+
+
     }
 
     public static String changeProbe(String str) throws Exception {
